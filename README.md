@@ -8,8 +8,6 @@
 実行ファイルのダウンロード. 
 https://github.com/k518-2026/BluetoothFileTransfer/releases
 
-詳細な図解入りマニュアルは [`manual.html`](manual.html) をご覧ください。
-
 ---
 
 ## ✨ 特徴 (Features)
