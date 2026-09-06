@@ -5,6 +5,9 @@
 
 **Bluetooth 転送ツール**は、Wi-Fiやインターネット環境がない場所でも、Bluetoothを使用してWindows PC間で直接・安全にファイルを送受信できるアプリケーションです。
 
+実行ファイルのダウンロード. 
+https://github.com/k518-2026/BluetoothFileTransfer/releases
+
 詳細な図解入りマニュアルは [`manual.html`](manual.html) をご覧ください。
 
 ---
