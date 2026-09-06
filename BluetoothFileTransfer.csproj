@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>AppIcon.ico</ApplicationIcon>
+	<PublishSingleFile>true</PublishSingleFile>
+	<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+	  <!-- 単一ファイルとして出力する -->
+	  <PublishSingleFile>true</PublishSingleFile>
+	  <!-- 単一ファイルを圧縮してファイルサイズを削減する -->
+	  <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+	  <!-- ネイティブDLLを一時フォルダに自己展開して読み込めるようにする -->
+	  <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+	  <!-- 【重要】ランタイムを含める（自己完結型）にする設定 -->
+	  <SelfContained>true</SelfContained>
+	  <!-- 【重要】対象のOSとアーキテクチャを指定（例: Windows 64bit） -->
+	  <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\AppIcon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="AppIcon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="InTheHand.Net.Bluetooth" Version="4.2.4" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\AppIcon.ico" />
+  </ItemGroup>
+
+</Project>

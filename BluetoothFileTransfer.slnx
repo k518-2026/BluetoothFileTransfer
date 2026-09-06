@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../BluetoothAppSetup/BluetoothAppSetup.vdproj" Type="Installer" />
+  <Project Path="BluetoothFileTransfer.csproj" />
+</Solution>
