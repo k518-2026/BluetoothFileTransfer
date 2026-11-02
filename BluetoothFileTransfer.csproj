@@ -26,6 +26,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- 検査用のプロジェクトはアプリに含めない -->
+    <Compile Remove="tests\**" />
+    <None Remove="tests\**" />
+    <Page Remove="tests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="AppIcon.ico" />
   </ItemGroup>
 

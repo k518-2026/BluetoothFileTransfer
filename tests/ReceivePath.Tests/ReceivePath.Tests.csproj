@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- 受信ファイル名の検査。Bluetooth も画面も使わないので、ReceivePath.cs だけを取り込んで試す -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\ReceivePath.cs" Link="ReceivePath.cs" />
+  </ItemGroup>
+
+</Project>

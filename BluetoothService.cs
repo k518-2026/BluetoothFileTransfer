@@ -96,12 +96,18 @@ namespace BluetoothFileTransfer
                     using var reader = new BinaryReader(stream, System.Text.Encoding.UTF8);
 
                     // 独自ヘッダーの読み取り
-                    string fileName = reader.ReadString();
+                    string remoteName = reader.ReadString();
                     long fileSize = reader.ReadInt64();
-                    string savePath = Path.Combine(saveDirectory, fileName);
+                    if (fileSize < 0) throw new InvalidDataException("ファイルの大きさが不正です。");
 
-                    // ファイルの保存
-                    using (var fileStream = File.Create(savePath))
+                    // 送り手の名前はそのまま使わない（..\ や絶対パス、「:」で受信フォルダーの外に書かせない。2026-11-02 修正）
+                    Directory.CreateDirectory(saveDirectory);
+                    string savePath = ReceivePath.Resolve(saveDirectory, remoteName);
+                    string fileName = Path.GetFileName(savePath);
+                    if (fileName != remoteName) OnLogMessage?.Invoke($"ファイル名を安全な形に直しました: {remoteName} → {fileName}");
+
+                    // ファイルの保存（既存のファイルは上書きしない）
+                    using (var fileStream = new FileStream(savePath, FileMode.CreateNew, FileAccess.Write, FileShare.None))
                     {
                         byte[] buffer = new byte[81920]; // 80KBチャンク
                         int bytesRead;
